@@ -1,0 +1,26 @@
+@import "src/app/styles/styles";
+@import "src/app/styles/variables";
+
+#welcome-container {
+  font-family: $handwriting-font;
+  text-align: center;
+
+  h1 {
+    font-weight: bold;
+  }
+
+  h2 {
+    font-weight: normal;
+  }
+
+  #mission-statement-container {
+    width: 300px;
+  }
+}
+
+app-signup {
+  padding: 20px;
+  border-radius: 10px;
+  border: 2px solid $accent;
+}
+
