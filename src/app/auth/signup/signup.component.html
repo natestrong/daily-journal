@@ -2,26 +2,53 @@
   <form id="signup-form"
         fxLayout="column"
         fxLayoutAlign="center center"
+        fxLayoutGap="10px"
         #form="ngForm"
         (ngSubmit)="onSubmit(form)">
+
+    <!-- Email -->
     <mat-form-field>
       <input type="email"
              matInput
              placeholder="Your email"
              ngModel
-             name="email">
+             name="email"
+             #emailInput="ngModel"
+             email
+             required>
+      <mat-error *ngIf="emailInput.hasError('required')">Field must not be empty.</mat-error>
+      <mat-error *ngIf="!emailInput.hasError('required')">Invalid email</mat-error>
     </mat-form-field>
+
+    <!-- Password -->
     <mat-form-field>
       <input type="password"
              matInput
              placeholder="Your password"
              ngModel
-             name="password">
+             name="password"
+             #passwordInput="ngModel"
+             minlength="6"
+             required>
+      <mat-hint align="start"
+                *ngIf="passwordInput.value?.length < 6">
+        Must be at least 6 characters.
+      </mat-hint>
+      <mat-hint align="end"
+                [ngStyle]="{'color': passwordInput.valid ? 'green' : 'inherit'}">
+        {{passwordInput.value?.length}} / 6 {{passwordInput.valid ? '💪' : ''}}
+      </mat-hint>
     </mat-form-field>
+
+    <mat-checkbox>I agree to accomplish all my goals</mat-checkbox>
+
+    <!-- Submit -->
     <button mat-raised-button
+            [disabled]="form.invalid"
             type="submit"
             color="primary">
       Submit
     </button>
+
   </form>
 </section>

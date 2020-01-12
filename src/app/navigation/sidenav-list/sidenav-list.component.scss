@@ -1,0 +1,21 @@
+@import "src/app/styles/styles";
+@import "src/app/styles/variables";
+
+a {
+  font-weight: 400;
+  color: black;
+  text-decoration: none;
+
+  &:hover, &:active {
+    color: slategrey;
+  }
+}
+
+mat-icon {
+  margin-right: 10px;
+}
+
+.sidenav-logout-button {
+  font-weight: 400;
+  margin: 0 0 15px 15px;
+}

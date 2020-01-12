@@ -1,0 +1,24 @@
+@import "src/app/styles/styles";
+@import "src/app/styles/variables";
+
+
+a {
+  color: white;
+  text-decoration: none;
+
+  &:hover, &:active {
+    color: slategrey;
+  }
+}
+
+.nav-links {
+  font-weight: 100;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.header-logo {
+  font-family: $handwriting-font !important;
+  font-size: 38px;
+}

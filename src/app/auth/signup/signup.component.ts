@@ -17,5 +17,4 @@ export class SignupComponent implements OnInit {
   onSubmit(form: Form) {
     console.log(form)
   }
-
 }

@@ -2,7 +2,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
 import {AppRoutingModule} from './app-routing.module';
-import {AppComponent} from './app.component';
+import {AppComponent} from './app.component/app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ServiceWorkerModule} from '@angular/service-worker';
 import {environment} from '../environments/environment';
@@ -16,6 +16,8 @@ import {UserPrefsComponent} from './user-prefs/user-prefs.component';
 import {WelcomeComponent} from './welcome/welcome.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {FormsModule} from '@angular/forms';
+import { HeaderComponent } from './navigation/header/header.component';
+import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import {FormsModule} from '@angular/forms';
     JournalComponent,
     UserPrefsComponent,
     WelcomeComponent,
+    HeaderComponent,
+    SidenavListComponent,
   ],
   imports: [
     AppRoutingModule,

@@ -1,0 +1,10 @@
+@import "src/app/styles/styles";
+@import "src/app/styles/variables";
+
+mat-sidenav {
+  width: 250px;
+}
+
+mat-sidenav-container, mat-sidenav-content {
+  height: 100%;
+}
