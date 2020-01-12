@@ -1,6 +1,3 @@
-$serif-font: "Roboto Slab", "Palatino", serif;
-$handwriting-font: "Amatic SC", $serif-font;
-
 // Import material theming functions
 @import '~@angular/material/theming';
 
@@ -13,3 +10,7 @@ $app-warn:    mat-palette($mat-red);
 $primary: mat-color($app-primary);
 $accent: mat-color($app-accent);
 $warn: mat-color($app-warn);
+
+// Fonts
+$serif-font: "Roboto Slab", "Palatino", serif;
+$handwriting-font: "Amatic SC", $serif-font;

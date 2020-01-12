@@ -2,9 +2,14 @@
 @import "src/app/styles/styles";
 @import "src/app/styles/variables";
 
+// Quill
+@import '~quill/dist/quill.core.css';
+@import '~quill/dist/quill.bubble.css';
+@import '~quill/dist/quill.snow.css';
+
 html, body {
-   height: 100%;
- }
+  height: 100%;
+}
 
 body {
   margin: 0;

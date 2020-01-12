@@ -1,6 +1,10 @@
 @import "src/app/styles/styles";
 @import "src/app/styles/variables";
 
+mat-nav-list {
+  width: 100%;
+}
+
 a {
   font-weight: 400;
   color: black;
@@ -18,4 +22,8 @@ mat-icon {
 .sidenav-logout-button {
   font-weight: 400;
   margin: 0 0 15px 15px;
+}
+
+#sidenav-bottom-list {
+  margin: 0 0 20px 20px;
 }

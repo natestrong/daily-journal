@@ -20,9 +20,12 @@
     </a>
   </mat-nav-list>
 
-  <button mat-button
-          class="sidenav-logout-button" (click)="onClose()">
-    <mat-icon>eject</mat-icon>
-    <span>Logout</span>
-  </button>
+  <mat-nav-list id="sidenav-bottom-list">
+    <mat-list-item>
+      <button mat-button (click)="onClose()">
+        <mat-icon>eject</mat-icon>
+        <span>Logout</span>
+      </button>
+    </mat-list-item>
+  </mat-nav-list>
 </div>

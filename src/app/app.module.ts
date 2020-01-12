@@ -16,8 +16,9 @@ import {UserPrefsComponent} from './user-prefs/user-prefs.component';
 import {WelcomeComponent} from './welcome/welcome.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {FormsModule} from '@angular/forms';
-import { HeaderComponent } from './navigation/header/header.component';
-import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.component';
+import {HeaderComponent} from './navigation/header/header.component';
+import {SidenavListComponent} from './navigation/sidenav-list/sidenav-list.component';
+import {QuillModule} from 'ngx-quill'
 
 @NgModule({
   declarations: [
@@ -39,10 +40,22 @@ import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.com
     FormsModule,
     FlexLayoutModule,
     MaterialModule,
+    QuillModule.forRoot({
+      modules: {
+        syntax: true,
+        toolbar: [
+          ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
+          ['blockquote', 'code-block'],
+          [{list: 'ordered'}, {list: 'bullet'}],
+          [{size: ['small', false, 'large', 'huge']}],  // custom dropdown
+        ]
+      }
+    }),
     ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production})
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule {
 }
