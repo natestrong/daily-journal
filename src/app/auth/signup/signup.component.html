@@ -1,0 +1,27 @@
+<section>
+  <form id="signup-form"
+        fxLayout="column"
+        fxLayoutAlign="center center"
+        #form="ngForm"
+        (ngSubmit)="onSubmit(form)">
+    <mat-form-field>
+      <input type="email"
+             matInput
+             placeholder="Your email"
+             ngModel
+             name="email">
+    </mat-form-field>
+    <mat-form-field>
+      <input type="password"
+             matInput
+             placeholder="Your password"
+             ngModel
+             name="password">
+    </mat-form-field>
+    <button mat-raised-button
+            type="submit"
+            color="primary">
+      Submit
+    </button>
+  </form>
+</section>
