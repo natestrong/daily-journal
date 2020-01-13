@@ -42,7 +42,6 @@ import {QuillModule} from 'ngx-quill'
     MaterialModule,
     QuillModule.forRoot({
       modules: {
-        syntax: true,
         toolbar: [
           ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
           ['blockquote', 'code-block'],

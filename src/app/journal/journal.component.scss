@@ -2,7 +2,37 @@
 @import "src/app/styles/styles";
 
 
-.header {
-  text-align: center;
-  color: $accent;
+#journal-container {
+  .header {
+    font-weight: 400;
+    text-align: center;
+    color: $primary;
+    user-select: none;
+    margin-bottom: 3px;
+
+    &#mood-header {
+      position: relative;
+    }
+
+    .header-emoji {
+      position: absolute;
+      right: -36px;
+      font-size: 26px;
+      margin-top: -7px;
+    }
+  }
+
+  mat-slider {
+    width: 300px;
+  }
+
+  quill-editor {
+    width: 100%;
+    max-width: 550px;
+    margin: 0 auto 0 auto;
+  }
 }
+
+
+
+

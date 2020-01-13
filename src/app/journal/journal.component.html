@@ -1,8 +1,31 @@
-<section fxLayout="column" fxLayoutAlign="start">
-  <h3>Mood</h3>
-  <mat-slider></mat-slider>
+<section fxLayout="column"
+         fxLayoutAlign="start center"
+         id="journal-container">
 
+  <!-- Mood -->
+  <h4 class="header"
+      id="mood-header">Mood
+    <span *ngFor="let mood of moodList"
+          class="header-emoji"
+          [@animState]="mood.state">{{mood.emoji}}</span>
+  </h4>
+  <mat-slider #moodSlider
+              thumbLabel
+              tickInterval="1"
+              min="0"
+              [max]="moodList.length - 1"
+              (input)="onMoodLevelChange(moodSlider.value)">
+  </mat-slider>
 
-  <h3 class="header">Journal</h3>
+  <h4 class="header">Reading</h4>
+
+  <h4 class="header">Studying</h4>
+
+  <h4 class="header">Exercise</h4>
+
+  <h4 class="header">Work</h4>
+
+  <h4 class="header">Journal</h4>
   <quill-editor #editor></quill-editor>
+
 </section>
