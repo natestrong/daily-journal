@@ -6,3 +6,19 @@ $custom-typography: mat-typography-config(
   $font-family: $serif-font
 );
 @include angular-material-typography($custom-typography);
+
+
+//
+// Global styling
+//
+
+.accent-outlined {
+  padding: 20px;
+  border-radius: 10px;
+  border: 2px solid $accent;
+}
+
+.call-to-action-header {
+  color: $primary;
+  font-family: $serif-font;
+}

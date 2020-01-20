@@ -1,4 +1,4 @@
-<section>
+<section class="accent-outlined">
   <form id="signup-form"
         fxLayout="column"
         fxLayoutAlign="center center"
@@ -40,7 +40,12 @@
       </mat-hint>
     </mat-form-field>
 
-    <mat-checkbox>I agree to accomplish all my goals</mat-checkbox>
+    <mat-checkbox ngModel
+                  name="agree"
+                  required
+                  color="primary">
+      I agree to accomplish all my goals
+    </mat-checkbox>
 
     <!-- Submit -->
     <button mat-raised-button

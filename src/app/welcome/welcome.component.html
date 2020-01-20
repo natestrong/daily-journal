@@ -10,8 +10,9 @@
   </div>
 
   <div fxLayout="column"
-       id="signup-container">
-    <h2>Signup to get started:</h2>
+       id="signup-container"
+       *ngIf="!isAuth">
+    <h2 class="call-to-action-header">Signup to get started:</h2>
     <app-signup></app-signup>
   </div>
 
