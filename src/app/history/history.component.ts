@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {JournalService} from '../journal/journal.service'
 
 @Component({
   selector: 'app-history',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HistoryComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor(private journalService: JournalService) {
   }
 
+  ngOnInit() {
+    this.journalService.setTempDates()
+    console.log(this.journalService.journalHistory)
+  }
 }
