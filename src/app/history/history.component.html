@@ -1,1 +1,35 @@
-<p>history works!</p>
+<table
+  [dataSource]="dataSource"
+  class="mat-elevation-z8"
+  mat-table
+  ngClass.lt-sm="full-width">
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="date">
+    <th *matHeaderCellDef
+        id="table-header-date"
+        mat-header-cell>Date
+    </th>
+    <td *matCellDef="let journal" mat-cell> {{journal.date | date}}</td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="id">
+    <th *matHeaderCellDef
+        id="table-header-id"
+        mat-header-cell>ID
+    </th>
+    <td *matCellDef="let journal" mat-cell> {{journal.id}} </td>
+  </ng-container>w
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="mood">
+    <th *matHeaderCellDef
+        id="table-header-mood"
+        mat-header-cell>Mood
+    <td *matCellDef="let journal" mat-cell> {{journal.mood}} </td>
+  </ng-container>
+
+  <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+  <tr *matRowDef="let journal; columns: displayedColumns;" mat-row></tr>
+</table>

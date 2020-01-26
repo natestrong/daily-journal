@@ -1,2 +1,15 @@
 @import "src/app/styles/variables";
 @import "src/app/styles/styles";
+
+table {
+  margin: 0 auto 0 auto;
+  width: 400px;
+
+  &.full-width {
+    width: 100%;
+  }
+
+  td {
+    min-width: 40px;
+  }
+}

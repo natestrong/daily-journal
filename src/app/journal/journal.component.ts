@@ -17,7 +17,6 @@ export class JournalComponent implements OnInit {
 
   ngOnInit() {
     this.generateMoodEmojis(5)
-    console.log(this.moodList)
   }
 
   public onMoodLevelChange(moodLevel: number) {

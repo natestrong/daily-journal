@@ -1,25 +1,25 @@
 <mat-toolbar color="primary">
   <div>
-    <button fxHide.gt-xs
-            mat-icon-button (click)="onToggleSidenav()">
+    <button (click)="onToggleSidenav()"
+            fxHide.gt-xs mat-icon-button>
       <mat-icon>menu</mat-icon>
     </button>
   </div>
 
   <!-- Logo -->
   <div class="header-logo">
-    <a routerLink="{{isAuth ? '/today' : '/'}}">{{title}}</a>
+    <a routerLink="{{authService.isAuth ? '/today' : '/'}}">{{title}}</a>
   </div>
 
   <!-- Navigation Items -->
-  <div fxHide.xs
-       fxFlex fxLayout fxLayoutAlign="end">
-    <ul fxLayout fxLayoutGap="10px" class="nav-links">
-      <li *ngIf="!isAuth"><a routerLink="/signup">Signup</a></li>
-      <li *ngIf="!isAuth"><a routerLink="/login">Login</a></li>
-      <li *ngIf="isAuth"><a routerLink="/today">Today</a></li>
-      <li *ngIf="isAuth"><a routerLink="/history">History</a></li>
-      <li><a (click)="authService.logout()">Logout</a></li>
+  <div fxFlex
+       fxHide.xs fxLayout fxLayoutAlign="end">
+    <ul class="nav-links" fxLayout fxLayoutGap="10px">
+      <li *ngIf="!authService.isAuth"><a routerLink="/signup">Signup</a></li>
+      <li *ngIf="!authService.isAuth"><a routerLink="/login">Login</a></li>
+      <li *ngIf="authService.isAuth"><a routerLink="/today">Today</a></li>
+      <li *ngIf="authService.isAuth"><a routerLink="/history">History</a></li>
+      <li *ngIf="authService.isAuth"><a (click)="authService.logout()">Logout</a></li>
     </ul>
   </div>
 </mat-toolbar>

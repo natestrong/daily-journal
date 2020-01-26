@@ -1,17 +1,17 @@
-<div id="welcome-container"
-     fxLayout="column"
+<div fxLayout="column"
      fxLayoutAlign="center center"
-     fxLayoutGap="50px">
+     fxLayoutGap="50px"
+     id="welcome-container">
 
   <div id="mission-statement-container">
-    <h1>Welcome to Daily</h1>
+    <h1>Welcome to DayLab</h1>
     <h2>The Goal:</h2>
     <h2>Make an app that more intelligently tracks and aids with your well-being.</h2>
   </div>
 
-  <div fxLayout="column"
-       id="signup-container"
-       *ngIf="!isAuth">
+  <div *ngIf="!authService.isAuth"
+       fxLayout="column"
+       id="signup-container">
     <h2 class="call-to-action-header">Signup to get started:</h2>
     <app-signup></app-signup>
   </div>

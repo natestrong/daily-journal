@@ -1,59 +1,61 @@
 <section class="accent-outlined">
-  <form id="signup-form"
+  <form #form="ngForm"
+        (ngSubmit)="onSubmit(form)"
         fxLayout="column"
         fxLayoutAlign="center center"
         fxLayoutGap="10px"
-        #form="ngForm"
-        (ngSubmit)="onSubmit(form)">
+        id="signup-form">
 
     <!-- Email -->
     <mat-form-field>
-      <input type="email"
-             matInput
-             placeholder="Your email"
-             ngModel
-             name="email"
-             #emailInput="ngModel"
+      <input #emailInput="ngModel"
              email
-             required>
+             matInput
+             name="email"
+             ngModel
+             placeholder="Your email"
+             required
+             type="email">
       <mat-error *ngIf="emailInput.hasError('required')">Field must not be empty.</mat-error>
       <mat-error *ngIf="!emailInput.hasError('required')">Invalid email</mat-error>
     </mat-form-field>
 
     <!-- Password -->
     <mat-form-field>
-      <input type="password"
+      <input #passwordInput="ngModel"
              matInput
-             placeholder="Your password"
-             ngModel
-             name="password"
-             #passwordInput="ngModel"
              minlength="6"
-             required>
-      <mat-hint align="start"
-                *ngIf="passwordInput.value?.length < 6">
+             name="password"
+             ngModel
+             placeholder="Your password"
+             required
+             type="password">
+      <mat-hint *ngIf="passwordInput.value?.length < 6"
+                align="start">
         Must be at least 6 characters.
       </mat-hint>
-      <mat-hint align="end"
-                [ngStyle]="{'color': passwordInput.valid ? 'green' : 'inherit'}">
+      <mat-hint [ngStyle]="{'color': passwordInput.valid ? 'green' : 'inherit'}"
+                align="end">
         {{passwordInput.value?.length}} / 6 {{passwordInput.valid ? '💪' : ''}}
       </mat-hint>
     </mat-form-field>
 
-    <mat-checkbox ngModel
+    <mat-checkbox color="primary"
                   name="agree"
-                  required
-                  color="primary">
+                  ngModel
+                  required>
       I agree to accomplish all my goals
     </mat-checkbox>
 
     <!-- Submit -->
-    <button mat-raised-button
+    <button *ngIf="!(isLoading$ | async)"
             [disabled]="form.invalid"
-            type="submit"
-            color="primary">
+            color="primary"
+            mat-raised-button
+            type="submit">
       Submit
     </button>
 
+    <mat-spinner *ngIf="isLoading$ | async"></mat-spinner>
   </form>
 </section>

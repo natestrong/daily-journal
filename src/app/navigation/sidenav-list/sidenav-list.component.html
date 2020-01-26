@@ -1,40 +1,40 @@
-<div fxLayout="column"
-     fxFlex
+<div fxFlex
+     fxLayout="column"
      fxLayoutAlign="space-between start">
   <mat-nav-list>
     <!-- Signup Link -->
-    <a *ngIf="!isAuth" mat-list-item
-       routerLink="/signup"
-       (click)="onClose()">
+    <a (click)="onClose()" *ngIf="!authService.isAuth"
+       mat-list-item
+       routerLink="/signup">
       <mat-icon>face</mat-icon>
       <span>Signup</span>
     </a>
     <!-- Login Link -->
-    <a *ngIf="!isAuth" mat-list-item
-       routerLink="/login"
-       (click)="onClose()">
+    <a (click)="onClose()" *ngIf="!authService.isAuth"
+       mat-list-item
+       routerLink="/login">
       <mat-icon>account_circle</mat-icon>
       <span>Login</span>
     </a>
     <!-- History Link -->
-    <a *ngIf="isAuth" mat-list-item
-       routerLink="/history"
-       (click)="onClose()">
+    <a (click)="onClose()" *ngIf="authService.isAuth"
+       mat-list-item
+       routerLink="/history">
       <mat-icon>history</mat-icon>
       <span>History</span>
     </a>
     <!-- Today Link -->
-    <a *ngIf="isAuth" mat-list-item
-       routerLink="/today"
-       (click)="onClose()">
+    <a (click)="onClose()" *ngIf="authService.isAuth"
+       mat-list-item
+       routerLink="/today">
       <mat-icon>star</mat-icon>
       <span>Today</span>
     </a>
   </mat-nav-list>
 
   <mat-nav-list id="sidenav-bottom-list">
-    <mat-list-item *ngIf="isAuth">
-      <button mat-button (click)="onClose(); authService.logout()">
+    <mat-list-item *ngIf="authService.isAuth">
+      <button (click)="onClose(); authService.logout()" mat-button>
         <mat-icon>eject</mat-icon>
         <span>Logout</span>
       </button>

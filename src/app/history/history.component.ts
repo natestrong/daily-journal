@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {JournalService} from '../journal/journal.service'
+import {MatTableDataSource} from '@angular/material'
 
 @Component({
   selector: 'app-history',
@@ -7,12 +8,14 @@ import {JournalService} from '../journal/journal.service'
   styleUrls: ['./history.component.scss']
 })
 export class HistoryComponent implements OnInit {
+  displayedColumns: string[] = ['date', 'id', 'mood']
+  dataSource = new MatTableDataSource()
 
   constructor(private journalService: JournalService) {
   }
 
   ngOnInit() {
     this.journalService.setTempDates()
-    console.log(this.journalService.journalHistory)
+    this.dataSource.data = this.journalService.journalHistory
   }
 }
