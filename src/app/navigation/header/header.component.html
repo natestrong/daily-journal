@@ -8,18 +8,18 @@
 
   <!-- Logo -->
   <div class="header-logo">
-    <a routerLink="{{authService.isAuth ? '/today' : '/'}}">{{title}}</a>
+    <a routerLink="{{(isAuth$ | async) ? '/today' : '/'}}">{{title}}</a>
   </div>
 
   <!-- Navigation Items -->
   <div fxFlex
        fxHide.xs fxLayout fxLayoutAlign="end">
     <ul class="nav-links" fxLayout fxLayoutGap="10px">
-      <li *ngIf="!authService.isAuth"><a routerLink="/signup">Signup</a></li>
-      <li *ngIf="!authService.isAuth"><a routerLink="/login">Login</a></li>
-      <li *ngIf="authService.isAuth"><a routerLink="/today">Today</a></li>
-      <li *ngIf="authService.isAuth"><a routerLink="/history">History</a></li>
-      <li *ngIf="authService.isAuth"><a (click)="authService.logout()">Logout</a></li>
+      <li *ngIf="!(isAuth$ | async)"><a routerLink="/signup">Signup</a></li>
+      <li *ngIf="!(isAuth$ | async)"><a routerLink="/login">Login</a></li>
+      <li *ngIf="isAuth$ | async"><a routerLink="/today">Today</a></li>
+      <li *ngIf="isAuth$ | async"><a routerLink="/history">History</a></li>
+      <li *ngIf="isAuth$ | async"><a (click)="authService.logout()">Logout</a></li>
     </ul>
   </div>
 </mat-toolbar>

@@ -3,28 +3,28 @@
      fxLayoutAlign="space-between start">
   <mat-nav-list>
     <!-- Signup Link -->
-    <a (click)="onClose()" *ngIf="!authService.isAuth"
+    <a (click)="onClose()" *ngIf="!(isAuth$ | async)"
        mat-list-item
        routerLink="/signup">
       <mat-icon>face</mat-icon>
       <span>Signup</span>
     </a>
     <!-- Login Link -->
-    <a (click)="onClose()" *ngIf="!authService.isAuth"
+    <a (click)="onClose()" *ngIf="!(isAuth$ | async)"
        mat-list-item
        routerLink="/login">
       <mat-icon>account_circle</mat-icon>
       <span>Login</span>
     </a>
     <!-- History Link -->
-    <a (click)="onClose()" *ngIf="authService.isAuth"
+    <a (click)="onClose()" *ngIf="isAuth$ | async"
        mat-list-item
        routerLink="/history">
       <mat-icon>history</mat-icon>
       <span>History</span>
     </a>
     <!-- Today Link -->
-    <a (click)="onClose()" *ngIf="authService.isAuth"
+    <a (click)="onClose()" *ngIf="isAuth$ | async"
        mat-list-item
        routerLink="/today">
       <mat-icon>star</mat-icon>
@@ -33,7 +33,7 @@
   </mat-nav-list>
 
   <mat-nav-list id="sidenav-bottom-list">
-    <mat-list-item *ngIf="authService.isAuth">
+    <mat-list-item *ngIf="isAuth$ | async">
       <button (click)="onClose(); authService.logout()" mat-button>
         <mat-icon>eject</mat-icon>
         <span>Logout</span>
