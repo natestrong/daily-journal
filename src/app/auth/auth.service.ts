@@ -9,7 +9,7 @@ import * as UI from '../shared/ui.actions'
 import * as Auth from './auth.actions'
 import {User} from 'firebase'
 import {AngularFirestore} from '@angular/fire/firestore'
-import {FSUser} from './fsUser.model'
+import {FSUser} from './user.model'
 
 
 @Injectable()

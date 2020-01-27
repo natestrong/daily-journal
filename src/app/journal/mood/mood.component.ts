@@ -14,7 +14,7 @@ export class MoodComponent implements OnInit {
   moodSelection = {old: 0, new: 0}
 
   constructor(
-    private journalService: JournalService
+    public journalService: JournalService
   ) {
   }
 

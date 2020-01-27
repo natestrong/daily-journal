@@ -6,7 +6,7 @@ import {Subject} from 'rxjs'
 
 @Injectable()
 export class JournalService {
-  private _todayJournalEntry: Journal = {
+  private _todayJournalEntry: unknown = {
     journalEntry: '',
     mood: 0,
     id: '',
@@ -52,7 +52,7 @@ export class JournalService {
   }
 
   get todayJournalEntry(): Journal {
-    return this._todayJournalEntry
+    return this._todayJournalEntry as Journal
   }
 
   set todayJournalEntry(value: Journal) {
