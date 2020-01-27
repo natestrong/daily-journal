@@ -9,7 +9,7 @@
     <h2>Make an app that more intelligently tracks and aids with your well-being.</h2>
   </div>
 
-  <div *ngIf="!authService.isAuth"
+  <div *ngIf="!(isAuth$ | async)"
        fxLayout="column"
        id="signup-container">
     <h2 class="call-to-action-header">Signup to get started:</h2>
