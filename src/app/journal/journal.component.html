@@ -2,30 +2,26 @@
          fxLayoutAlign="start center"
          id="journal-container">
 
+  <h2 *ngIf="journalService.todayJournalEntry"
+      id="journal-name-header">
+    {{journalService.todayJournalEntry.id}}
+  </h2>
+
   <!-- Mood -->
-  <h4 class="header"
-      id="mood-header">Mood
-    <span *ngFor="let mood of moodList"
-          class="header-emoji"
-          [@animState]="mood.state">{{mood.emoji}}</span>
-  </h4>
-  <mat-slider #moodSlider
-              thumbLabel
-              tickInterval="1"
-              min="0"
-              [max]="moodList.length - 1"
-              (input)="onMoodLevelChange(moodSlider.value)">
-  </mat-slider>
+  <app-mood></app-mood>
 
-  <h4 class="header">Reading</h4>
+  <!--  <h4 class="journal-header">Reading</h4>-->
 
-  <h4 class="header">Studying</h4>
+  <!--  <h4 class="journal-header">Studying</h4>-->
 
-  <h4 class="header">Exercise</h4>
+  <!--  <h4 class="journal-header">Exercise</h4>-->
 
-  <h4 class="header">Work</h4>
+  <!--  <h4 class="journal-header">Work</h4>-->
 
-  <h4 class="header">Journal</h4>
-  <quill-editor #editor></quill-editor>
+  <h4 class="journal-header">Journal</h4>
+  <quill-editor #editor
+                (onContentChanged)="onJournalUpdated($event)"
+                [(ngModel)]="journalService.todayJournalEntry.journalEntry">
+  </quill-editor>
 
 </section>

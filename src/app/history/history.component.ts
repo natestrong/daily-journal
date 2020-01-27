@@ -15,7 +15,5 @@ export class HistoryComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.journalService.setTempDates()
-    this.dataSource.data = this.journalService.journalHistory
   }
 }

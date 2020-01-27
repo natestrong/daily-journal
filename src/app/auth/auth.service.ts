@@ -14,8 +14,8 @@ import {FSUser} from './fsUser.model'
 
 @Injectable()
 export class AuthService {
-  private fbUser: User
-  private fsUser
+  public fbUser: User
+  public fsUser
 
   constructor(
     private router: Router,
@@ -76,7 +76,6 @@ export class AuthService {
     .doc(this.fbUser.uid).valueChanges().subscribe(doc => {
       if (doc) {
         this.fsUser = {...doc}
-        console.log(this.fsUser)
       } else {
         this.fsCreateUser()
       }

@@ -22,3 +22,11 @@ $custom-typography: mat-typography-config(
   color: $primary;
   font-family: $serif-font;
 }
+
+.journal-header {
+  font-weight: 400;
+  text-align: center;
+  color: $primary;
+  user-select: none;
+  margin-bottom: 3px;
+}

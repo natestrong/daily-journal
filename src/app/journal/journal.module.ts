@@ -4,11 +4,13 @@ import {QuillModule} from 'ngx-quill'
 import {MaterialModule} from '../material.module'
 import {SharedModule} from '../shared/shared.module'
 import {JournalRoutingModule} from './journal-routing.module'
-import {CommonModule} from '@angular/common'
+import {CommonModule} from '@angular/common';
+import { MoodComponent } from './mood/mood.component'
 
 @NgModule({
   declarations: [
     JournalComponent,
+    MoodComponent,
   ],
   imports: [
     CommonModule,
