@@ -1,6 +1,6 @@
 {
-  "name": "daily-journal",
-  "short_name": "daily-journal",
+  "name": "DayLab",
+  "short_name": "DayLab",
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
   "display": "standalone",

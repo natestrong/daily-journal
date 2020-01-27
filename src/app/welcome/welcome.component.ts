@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {AuthService} from '../auth/auth.service'
 import {Store} from '@ngrx/store'
 import * as fromRoot from '../app.reducer'
 import {Observable} from 'rxjs'
@@ -12,10 +11,7 @@ import {Observable} from 'rxjs'
 export class WelcomeComponent implements OnInit {
   isAuth$: Observable<boolean>
 
-  constructor(
-    private store: Store<fromRoot.State>,
-    public authService: AuthService
-  ) {
+  constructor(private store: Store<fromRoot.State>) {
   }
 
   ngOnInit() {

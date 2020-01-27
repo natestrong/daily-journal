@@ -7,16 +7,22 @@ import {Store} from '@ngrx/store'
 import * as fromRoot from '../app.reducer'
 import * as UI from '../shared/ui.actions'
 import * as Auth from './auth.actions'
+import {User} from 'firebase'
+import {AngularFirestore} from '@angular/fire/firestore'
+import {FSUser} from './fsUser.model'
 
 
 @Injectable()
 export class AuthService {
+  private fbUser: User
+  private fsUser
 
   constructor(
     private router: Router,
     private afAuth: AngularFireAuth,
     private uiService: UIService,
     private store: Store<fromRoot.State>,
+    private db: AngularFirestore
   ) {
   }
 
@@ -25,12 +31,15 @@ export class AuthService {
       if (user) {
         this.store.dispatch(new Auth.SetAuthenticated())
         this.router.navigate(['/today'])
+        this.fbUser = user
+        this.fsGetUser()
       } else {
         this.store.dispatch(new Auth.SetUnauthenticated())
-        this.router.navigate(['/login'])
+        this.router.navigate(['/welcome'])
+        this.fsUser = null
+        this.fbUser = null
       }
     })
-
   }
 
   registerUser(authData: AuthData) {
@@ -60,5 +69,27 @@ export class AuthService {
 
   logout() {
     this.afAuth.auth.signOut()
+  }
+
+  fsGetUser() {
+    this.db.collection('users')
+    .doc(this.fbUser.uid).valueChanges().subscribe(doc => {
+      if (doc) {
+        this.fsUser = {...doc}
+        console.log(this.fsUser)
+      } else {
+        this.fsCreateUser()
+      }
+    })
+  }
+
+  fsCreateUser() {
+    const fsUser: FSUser = {
+      displayName: this.fbUser.displayName,
+      firstTimeUse: true,
+      email: this.fbUser.email,
+      uid: this.fbUser.uid
+    }
+    this.db.collection('users').doc(fsUser.uid).set(fsUser)
   }
 }

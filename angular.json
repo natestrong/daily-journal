@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "daily-journal": {
+    "dayLab": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/daily-journal",
+            "outputPath": "dist/dayLab",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -71,18 +71,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "daily-journal:build"
+            "browserTarget": "dayLab:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "daily-journal:build:production"
+              "browserTarget": "dayLab:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "daily-journal:build"
+            "browserTarget": "dayLab:build"
           }
         },
         "test": {
@@ -121,16 +121,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "daily-journal:serve"
+            "devServerTarget": "dayLab:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "daily-journal:serve:production"
+              "devServerTarget": "dayLab:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "daily-journal"
+  "defaultProject": "dayLab"
 }
