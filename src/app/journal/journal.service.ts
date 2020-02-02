@@ -3,6 +3,7 @@ import {Injectable} from '@angular/core'
 import {AngularFirestore} from '@angular/fire/firestore'
 import {AuthService} from '../auth/auth.service'
 import {Subject} from 'rxjs'
+import {take} from 'rxjs/operators'
 
 @Injectable()
 export class JournalService {
@@ -30,6 +31,7 @@ export class JournalService {
     this.db.collection(`users/${this.authService.fbUser.uid}/journalEntries`)
     .doc(this.todayDateId)
     .valueChanges()
+    .pipe(take(1))
     .subscribe(doc => {
       if (doc) {
         this._todayJournalEntry = {...doc}
@@ -60,6 +62,7 @@ export class JournalService {
   }
 
   public updateJournalEntry(data) {
+    console.log('update:', data)
     this.db.collection(this.fsJournalCollectionPath).doc(this.todayDateId).update(data)
   }
 }
