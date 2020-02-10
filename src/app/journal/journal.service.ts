@@ -62,7 +62,6 @@ export class JournalService {
   }
 
   public updateJournalEntry(data) {
-    console.log('update:', data)
     this.db.collection(this.fsJournalCollectionPath).doc(this.todayDateId).update(data)
   }
 }
