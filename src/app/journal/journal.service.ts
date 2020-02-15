@@ -34,7 +34,7 @@ export class JournalService {
     .pipe(take(1))
     .subscribe(doc => {
       if (doc) {
-        this._todayJournalEntry = {...doc}
+        this._todayJournalEntry = {...(doc as any)}
         console.log(this.todayJournalEntry)
         this.todayJournalEntryUpdated.next()
       } else {

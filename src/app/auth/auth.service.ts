@@ -75,7 +75,7 @@ export class AuthService {
     this.db.collection('users')
     .doc(this.fbUser.uid).valueChanges().subscribe(doc => {
       if (doc) {
-        this.fsUser = {...doc}
+        this.fsUser = {...(doc as any)}
       } else {
         this.fsCreateUser()
       }

@@ -5,7 +5,7 @@ import {AuthGuard} from './auth/auth.guard'
 
 const routes: Routes = [
   {path: 'history', component: HistoryComponent, canActivate: [AuthGuard]},
-  {path: 'today', loadChildren: './journal/journal.module#JournalModule', canLoad: [AuthGuard]}
+  {path: 'today', loadChildren: () => import('./journal/journal.module').then(m => m.JournalModule), canLoad: [AuthGuard]}
 ];
 
 @NgModule({
