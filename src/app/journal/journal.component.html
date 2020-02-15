@@ -1,27 +1,11 @@
-<section fxLayout="column"
-         fxLayoutAlign="start center"
-         id="journal-container">
-
-  <h2 *ngIf="journalService.todayJournalEntry"
-      id="journal-name-header">
-    {{journalService.todayJournalEntry.id}}
-  </h2>
-
-  <!-- Mood -->
-  <app-mood></app-mood>
-
-  <!--  <h4 class="journal-header">Reading</h4>-->
-
-  <!--  <h4 class="journal-header">Studying</h4>-->
-
-  <!--  <h4 class="journal-header">Exercise</h4>-->
-
-  <!--  <h4 class="journal-header">Work</h4>-->
-
-  <h4 class="journal-header">Journal</h4>
-  <quill-editor #editor
-                (onContentChanged)="onJournalUpdated($event)"
-                [(ngModel)]="journalService.todayJournalEntry.journalEntry">
-  </quill-editor>
-
-</section>
+<div (ref)="getFullpageRef($event)" [options]="fullpageConfig" fullpage id="fullpage">
+  <app-mood class="section"></app-mood>
+  <div class="section"></div>
+  <div class="section">
+    <quill-editor #editor
+                  (onContentChanged)="onJournalUpdated($event)"
+                  [(ngModel)]="journalService.todayJournalEntry.journalEntry">
+    </quill-editor>
+  </div>
+  <div (click)="fullpageApi.moveTo('secondPage', 2)" class="section">Some section4</div>
+</div>

@@ -6,6 +6,7 @@ import {SharedModule} from '../shared/shared.module'
 import {JournalRoutingModule} from './journal-routing.module'
 import {CommonModule} from '@angular/common';
 import { MoodComponent } from './mood/mood.component'
+import {AngularFullpageModule} from '@fullpage/angular-fullpage'
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { MoodComponent } from './mood/mood.component'
     MoodComponent,
   ],
   imports: [
+    AngularFullpageModule,
     CommonModule,
     JournalRoutingModule,
     MaterialModule,

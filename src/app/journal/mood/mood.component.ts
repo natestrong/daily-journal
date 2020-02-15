@@ -9,7 +9,7 @@ import {JournalService} from '../journal.service'
   animations: [rotateVertical]
 })
 export class MoodComponent implements OnInit {
-  moodInterval: number
+  moodInterval: any
   moodList = []
   moodSelection = {old: 0, new: 0}
 

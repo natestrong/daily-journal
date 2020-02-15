@@ -1,6 +1,18 @@
 @import "src/app/styles/styles";
 @import "src/app/styles/variables";
 
+app-header {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
+}
+
+mat-sidenav-content {
+  overflow: hidden;
+}
+
 mat-sidenav {
   width: 250px;
 }
