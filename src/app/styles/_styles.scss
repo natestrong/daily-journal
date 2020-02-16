@@ -24,10 +24,29 @@ $custom-typography: mat-typography-config(
   font-family: $serif-font;
 }
 
-.journal-header {
-  font-weight: 400;
-  text-align: center;
-  color: $primary;
-  user-select: none;
-  margin-bottom: 3px;
+.journal-section-container {
+  font-family: $handwriting-font;
+  color: white;
+  position: absolute;
+  top: 0;
+  left: 40px;
+  right: 40px;
+  bottom: 0;
+
+  .journal-header {
+    font-size: 40px;
+    font-weight: 800;
+    text-align: center;
+    user-select: none;
+    margin-bottom: 10px;
+  }
+
+  .journal-sub-header {
+    font-weight: 200;
+    font-size: 24px;
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    user-select: none;
+  }
 }

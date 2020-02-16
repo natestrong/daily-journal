@@ -1,14 +1,6 @@
 @import "src/app/styles/variables";
 @import "src/app/styles/styles";
 
-#journal-name-header {
-  font-family: $handwriting-font;
-  text-align: center;
-  color: $accent;
-  user-select: none;
-  margin-bottom: 0;
-}
-
 #journal-container {
 
   quill-editor {

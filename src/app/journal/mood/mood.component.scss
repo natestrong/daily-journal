@@ -1,17 +1,19 @@
 @import "src/app/styles/variables";
 @import "src/app/styles/styles";
 
-#mood-header {
-  position: relative;
-}
-
-.header-emoji {
-  position: absolute;
-  right: 96px;
-  font-size: 26px;
-  margin-top: -7px;
-}
-
 mat-slider {
+  margin: 0 auto 0 auto;
   width: 300px;
+}
+
+.emoji-container {
+  height: 200px;
+  position: relative;
+
+  .emoji {
+    position: absolute;
+    font-size: 160px;
+    user-select: none;
+    left: -90px;
+  }
 }

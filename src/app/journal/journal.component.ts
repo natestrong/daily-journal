@@ -35,7 +35,13 @@ export class JournalComponent implements OnInit, AfterContentInit {
   }
 
   updateBackground() {
-    const gradient = 'linear-gradient(176deg, rgba(73,134,140,1) 0%, rgba(160,217,217,1) 19%, rgba(217,177,102,1) 41%, rgba(191,153,105,1) 59%, rgba(166,45,45,1) 89%)'
+    const grad1 = 'rgba(63,81,181,1)'
+    const grad2 = 'rgba(73,134,140,1)'
+    const grad3 = 'rgba(160,217,217,1)'
+    const grad4 = 'rgba(217,177,102,1)'
+    const grad5 = 'rgba(191,153,105,1)'
+    const grad6 = 'rgba(166,45,45,1)'
+    const gradient = `linear-gradient(176deg, ${grad1} 2%, ${grad2} 6%, ${grad3} 19%, ${grad4}41%, ${grad5} 59%, ${grad6} 89%)`
     this.renderer.setStyle(document.getElementById('fullpage'), 'background', gradient)
   }
 
