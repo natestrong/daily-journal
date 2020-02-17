@@ -7,13 +7,19 @@ import {JournalRoutingModule} from './journal-routing.module'
 import {CommonModule} from '@angular/common';
 import { MoodComponent } from './mood/mood.component'
 import {AngularFullpageModule} from '@fullpage/angular-fullpage';
-import { QuillComponent } from './quill/quill.component'
+import { QuillComponent } from './quill/quill.component';
+import { ExerciseComponent } from './exercise/exercise.component';
+import { ReadingComponent } from './reading/reading.component';
+import { CareerComponent } from './career/career.component'
 
 @NgModule({
   declarations: [
     JournalComponent,
     MoodComponent,
     QuillComponent,
+    ExerciseComponent,
+    ReadingComponent,
+    CareerComponent,
   ],
   imports: [
     AngularFullpageModule,

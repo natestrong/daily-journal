@@ -49,7 +49,7 @@ export class JournalComponent implements OnInit {
       anchors: ['mood', 'Journal'],
       menu: '#menu',
       navigation: true,
-      navigationTooltips: ['Mood', 'Journal'],
+      navigationTooltips: ['Mood', 'Exercise', 'Reading', 'Career', 'Journal'],
       afterResize: () => {
         console.log('After resize');
       },
