@@ -1,4 +1,4 @@
-import {AfterContentInit, Component, ElementRef, OnInit, Renderer2, ViewChild} from '@angular/core';
+import {Component, ElementRef, OnInit, Renderer2, ViewChild} from '@angular/core';
 import {JournalService} from './journal.service'
 import {UIService} from '../shared/ui.service'
 import fullpageLicense from '../../../fullpageLicense/fullpageLicense'

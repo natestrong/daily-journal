@@ -1,0 +1,13 @@
+<section class="journal-section-container"
+         fxLayout="column"
+         fxLayoutAlign="center center">
+  <h1 class="journal-header" id="mood-header">
+    Journal
+  </h1>
+  <h4 class="journal-sub-header">What happened today?</h4>
+
+  <quill-editor #editor
+                (onContentChanged)="journalService.updateJournalEntry({journalEntry: $event.html})"
+                [(ngModel)]="journalService.todayJournalEntry.journalEntry">
+  </quill-editor>
+</section>

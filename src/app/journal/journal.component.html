@@ -1,9 +1,4 @@
 <div (ref)="getFullpageRef($event)" [options]="fullpageConfig" fullpage id="fullpage">
   <app-mood class="section"></app-mood>
-  <div class="section">
-    <quill-editor #editor
-                  (onContentChanged)="onJournalUpdated($event)"
-                  [(ngModel)]="journalService.todayJournalEntry.journalEntry">
-    </quill-editor>
-  </div>
+  <app-quill class="section"></app-quill>
 </div>

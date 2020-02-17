@@ -13,21 +13,28 @@ mat-slider {
   animation: bouncingAnimation 3s infinite 0s ease-in-out;
 
   .mood-image {
-    user-select: none;
   }
 }
 
-@keyframes bouncingAnimation{
-  0%{
+@keyframes bouncingAnimation {
+  0% {
     transform: rotate(0deg) scale(1);
+    filter: drop-shadow(0 0 3px rgba(0, 0, 0, .5));
   }
-  21%{
-    transform: rotate(5deg) scale(1.2);
+  21% {
+    transform: rotate(6deg) scale(1.2);
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, .5));
   }
-  50%{
+  50% {
     transform: rotate(0deg) scale(1);
+    filter: drop-shadow(0 0 3px rgba(0, 0, 0, .5));
   }
-  66%{
-    transform: rotate(-5deg) scale(1.2);
+  66% {
+    transform: rotate(-6deg) scale(1.2);
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, .5));
+  }
+
+  100% {
+    filter: drop-shadow(0 0 5px rgba(0, 0, 0, .5));
   }
 }

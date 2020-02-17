@@ -9,6 +9,7 @@
 
   <mat-slider #moodSlider
               (input)="onMoodLevelChange(moodSlider.value)"
+              [value]="mood"
               max="5"
               thumbLabel
               tickInterval="1">
@@ -19,6 +20,7 @@
       <img *ngIf="mood === _number"
            alt="Mood Image {{_number}}"
            class="mood-image"
+           draggable="false"
            src="assets/moods/mood-{{_number}}.svg">
     </ng-container>
   </div>
