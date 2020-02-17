@@ -8,7 +8,7 @@ import fullpageLicense from '../../../fullpageLicense/fullpageLicense'
   templateUrl: './journal.component.html',
   styleUrls: ['./journal.component.scss'],
 })
-export class JournalComponent implements OnInit, AfterContentInit {
+export class JournalComponent implements OnInit {
   constructor(
     public journalService: JournalService,
     public ui: UIService,
@@ -24,9 +24,6 @@ export class JournalComponent implements OnInit, AfterContentInit {
   ngOnInit(): void {
     this.initializeFullpage()
     this.journalService.fsGetTodayJournal()
-  }
-
-  ngAfterContentInit(): void {
     this.updateBackground()
   }
 
@@ -49,10 +46,10 @@ export class JournalComponent implements OnInit, AfterContentInit {
     // for more details on config options please visit fullPage.js docs
     this.fullpageConfig = {
       licenseKey: fullpageLicense,
-      anchors: ['mood', 'secondPage', 'thirdPage', 'fourthPage', 'lastPage'],
+      anchors: ['mood', 'Journal'],
       menu: '#menu',
       navigation: true,
-      navigationTooltips: ['Mood', 'secondSlide'],
+      navigationTooltips: ['Mood', 'Journal'],
       afterResize: () => {
         console.log('After resize');
       },

@@ -4,31 +4,28 @@
   <h1 class="journal-header" id="mood-header">
     Mood
   </h1>
-  <h4 class="journal-sub-header">Tracking your mood on a daily basis can help reveal trends which
+  <h4 class="journal-sub-header">Tracking your mood on a daily basis can reveal trends which
     help you live your happiest life.</h4>
-
-    <div class="emoji-container">
-    <span *ngFor="let mood of moodList"
-          [@animState]="mood.state"
-          class="emoji">{{mood.emoji}}</span>
-    </div>
 
   <mat-slider #moodSlider
               (input)="onMoodLevelChange(moodSlider.value)"
-              [max]="moodList.length - 1"
-              [value]="journalService.todayJournalEntry?.mood"
-              min="0"
+              max="5"
               thumbLabel
               tickInterval="1">
   </mat-slider>
+
+  <div class="mood-image-container">
+    <ng-container *ngFor="let _number of [1, 2, 3, 4, 5]">
+      <img *ngIf="mood === _number"
+           alt="Mood Image {{_number}}"
+           class="mood-image"
+           src="assets/moods/mood-{{_number}}.svg">
+    </ng-container>
+  </div>
+
 </section>
 
-<!--<h4 class="journal-header"-->
-<!--    id="mood-header">Mood-->
-<!--  <span *ngFor="let mood of moodList"-->
-<!--        [@animState]="mood.state"-->
-<!--        class="header-emoji">{{mood.emoji}}</span>-->
-<!--</h4>-->
+
 <!--<mat-slider #moodSlider-->
 <!--            (input)="onMoodLevelChange(moodSlider.value)"-->
 <!--            [max]="moodList.length - 1"-->

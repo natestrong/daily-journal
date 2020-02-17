@@ -6,14 +6,10 @@ mat-slider {
   width: 300px;
 }
 
-.emoji-container {
-  height: 200px;
-  position: relative;
+.mood-image-container {
+  height: 300px;
+  width: 300px;
 
-  .emoji {
-    position: absolute;
-    font-size: 160px;
-    user-select: none;
-    left: -90px;
+  .mood-image {
   }
 }
