@@ -4,12 +4,30 @@
 mat-slider {
   margin: 0 auto 0 auto;
   width: 300px;
+  z-index: 2;
 }
 
 .mood-image-container {
   height: 300px;
   width: 300px;
+  animation: bouncingAnimation 3s infinite 0s ease-in-out;
 
   .mood-image {
+    user-select: none;
+  }
+}
+
+@keyframes bouncingAnimation{
+  0%{
+    transform: rotate(0deg) scale(1);
+  }
+  21%{
+    transform: rotate(5deg) scale(1.2);
+  }
+  50%{
+    transform: rotate(0deg) scale(1);
+  }
+  66%{
+    transform: rotate(-5deg) scale(1.2);
   }
 }
