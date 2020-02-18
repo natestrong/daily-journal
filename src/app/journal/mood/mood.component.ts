@@ -18,6 +18,7 @@ export class MoodComponent implements OnInit {
   }
 
   onMoodLevelChange(value) {
+    navigator.vibrate(50)
     this.mood = value
     this.journalService.updateJournalEntry({mood: this.mood})
   }
