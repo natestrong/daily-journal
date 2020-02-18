@@ -1,0 +1,16 @@
+<section (window:resize)="onWindowResize()"
+         class="journal-section-container"
+         fxLayout="column"
+         fxLayoutAlign="center center">
+  <h1 class="journal-header" id="mood-header">
+    Journal
+  </h1>
+  <h4 class="journal-sub-header">Penny for your thoughts?</h4>
+
+  <div class="editor-container">
+    <p-editor (onTextChange)="editorSubject.next()"
+              [(ngModel)]="journalEntry"
+              [style]="{'height': editorHeight + 'px', 'width': editorWidth}">
+    </p-editor>
+  </div>
+</section>
