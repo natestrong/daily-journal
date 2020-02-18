@@ -2,9 +2,11 @@
      [options]="fullpageConfig"
      fullpage
      id="fullpage">
-  <app-mood class="section"></app-mood>
+  <app-mood [mood]="mood" class="section"></app-mood>
   <app-exercise class="section"></app-exercise>
   <app-reading class="section"></app-reading>
   <app-career class="section"></app-career>
-  <app-writing-entry class="section"></app-writing-entry>
+  <app-writing-entry
+    [journalEntry]="(currentPage === 'APP-WRITING-ENTRY') ? journalService.todayJournalEntry.journalEntry : null"
+    class="section"></app-writing-entry>
 </div>

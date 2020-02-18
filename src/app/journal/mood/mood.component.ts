@@ -1,6 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {JournalService} from '../journal.service'
-import {take} from 'rxjs/operators'
 
 @Component({
   selector: 'app-mood',
@@ -8,7 +7,7 @@ import {take} from 'rxjs/operators'
   styleUrls: ['./mood.component.scss'],
 })
 export class MoodComponent implements OnInit {
-  mood = 0
+  @Input() mood
 
   constructor(
     public journalService: JournalService
@@ -16,9 +15,6 @@ export class MoodComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.journalService.todayJournalEntryUpdated.pipe(take(1)).subscribe(() => {
-      this.mood = this.journalService.todayJournalEntry.mood
-    })
   }
 
   onMoodLevelChange(value) {

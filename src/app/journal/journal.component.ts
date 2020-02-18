@@ -1,6 +1,7 @@
 import {Component, ElementRef, OnInit, Renderer2, ViewChild} from '@angular/core';
 import {JournalService} from './journal.service'
 import fullpageLicense from '../../../fullpageLicense/fullpageLicense'
+import {take} from 'rxjs/operators'
 
 @Component({
   selector: 'app-journal',
@@ -9,6 +10,7 @@ import fullpageLicense from '../../../fullpageLicense/fullpageLicense'
 })
 export class JournalComponent implements OnInit {
   currentPage: string
+  mood: number
 
   constructor(
     public journalService: JournalService,
@@ -25,6 +27,10 @@ export class JournalComponent implements OnInit {
     this.initializeFullpage()
     this.journalService.fsGetTodayJournal()
     this.updateBackground()
+
+    this.journalService.todayJournalEntryUpdated.pipe(take(1)).subscribe(() => {
+      this.mood = this.journalService.todayJournalEntry.mood
+    })
   }
 
   updateBackground() {
@@ -47,7 +53,6 @@ export class JournalComponent implements OnInit {
       navigation: true,
       navigationTooltips: ['Mood', 'Exercise', 'Reading', 'Career', 'Journal'],
       afterResize: () => {
-        console.log('RESIZe')
         this.repositionFPNav()
       },
       afterLoad: (origin, destination, direction) => {
@@ -63,7 +68,7 @@ export class JournalComponent implements OnInit {
 
   public repositionFPNav() {
     if (this.currentPage === 'APP-WRITING-ENTRY' && window.innerWidth < 790) {
-        this.renderer.setStyle(document.getElementById('fp-nav'), 'top', '15%')
+      this.renderer.setStyle(document.getElementById('fp-nav'), 'top', '15%')
     } else {
       this.renderer.setStyle(document.getElementById('fp-nav'), 'top', '50%')
     }
