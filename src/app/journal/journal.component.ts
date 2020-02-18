@@ -1,6 +1,5 @@
 import {Component, ElementRef, OnInit, Renderer2, ViewChild} from '@angular/core';
 import {JournalService} from './journal.service'
-import {UIService} from '../shared/ui.service'
 import fullpageLicense from '../../../fullpageLicense/fullpageLicense'
 
 @Component({
@@ -9,9 +8,10 @@ import fullpageLicense from '../../../fullpageLicense/fullpageLicense'
   styleUrls: ['./journal.component.scss'],
 })
 export class JournalComponent implements OnInit {
+  currentPage: string
+
   constructor(
     public journalService: JournalService,
-    public ui: UIService,
     private renderer: Renderer2,
   ) {
   }
@@ -25,10 +25,6 @@ export class JournalComponent implements OnInit {
     this.initializeFullpage()
     this.journalService.fsGetTodayJournal()
     this.updateBackground()
-  }
-
-  onJournalUpdated(event) {
-    this.journalService.updateJournalEntry({journalEntry: event.html})
   }
 
   updateBackground() {
@@ -51,16 +47,25 @@ export class JournalComponent implements OnInit {
       navigation: true,
       navigationTooltips: ['Mood', 'Exercise', 'Reading', 'Career', 'Journal'],
       afterResize: () => {
-        console.log('After resize');
+        console.log('RESIZe')
+        this.repositionFPNav()
       },
       afterLoad: (origin, destination, direction) => {
-        console.log(origin.index);
-        this.updateBackground()
+        this.currentPage = destination.item.tagName
+        this.repositionFPNav()
       }
     }
   }
 
   getFullpageRef(fullPageRef) {
     this.fullpageApi = fullPageRef;
+  }
+
+  public repositionFPNav() {
+    if (this.currentPage === 'APP-WRITING-ENTRY' && window.innerWidth < 790) {
+        this.renderer.setStyle(document.getElementById('fp-nav'), 'top', '15%')
+    } else {
+      this.renderer.setStyle(document.getElementById('fp-nav'), 'top', '50%')
+    }
   }
 }

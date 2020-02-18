@@ -50,3 +50,8 @@ $custom-typography: mat-typography-config(
     user-select: none;
   }
 }
+
+#fp-nav {
+  transition: top;
+  transition-duration: 500ms;
+}
